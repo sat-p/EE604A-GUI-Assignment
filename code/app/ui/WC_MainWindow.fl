@@ -1,0 +1,41 @@
+# data file for the Fltk User Interface Designer (fluid)
+version 1.0303 
+header_name {.h} 
+code_name {.cxx}
+decl {\#undef WC_MainWindow_h} {public global
+} 
+
+decl {namespace EE604A {namespace GUI {class WC_MainWindow;}}} {public global
+} 
+
+widget_class {EE604A::GUI::WC_MainWindow} {
+  label {EE604A : Assignment [14610]} open
+  xywh {241 144 800 600} type Double resizable
+  class Fl_Double_Window visible
+} {
+  Fl_Menu_Bar {} {open
+    xywh {0 0 800 25}
+  } {
+    Submenu {} {
+      label {&File} open
+      xywh {0 0 70 20}
+    } {
+      MenuItem {} {
+        label {&Open}
+        xywh {0 0 36 20}
+      }
+      MenuItem {} {
+        label {&Quit}
+        xywh {0 0 36 20}
+      }
+    }
+    Submenu {} {
+      label {&Tools} open
+      xywh {0 0 70 20}
+    } {}
+  }
+  decl {virtual void WOpen_cb (void) {}} {private local
+  }
+  decl {virtual void WQuit_cb (void) {}} {private local
+  }
+} 

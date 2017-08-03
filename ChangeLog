@@ -1,5 +1,16 @@
 2017-08-03 Satya Panuganti <prakashsatya10@gmail.com>
 
+*app    : -Added Makefile in src
+          -Added basic UI in the form of WC_MainWindow
+          -Added helper class UI_MainWindow
+          -Added main.cxx
+
+*makeinclude : Fixed error in flags.
+
+/************************************************************************/
+
+2017-08-03 Satya Panuganti <prakashsatya10@gmail.com>
+
 Added Makefiles and created preliminary directory structure.
 
 /************************************************************************/

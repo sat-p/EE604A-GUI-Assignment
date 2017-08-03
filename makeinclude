@@ -4,9 +4,9 @@ AR = ar crv
 RM = rm -rf
 
 LIB = \
-	-Lfltk
+	-lfltk
     
-FLAGS = Wall -O3 -std=c++11
+FLAGS = -Wall -O3 -std=c++11
 MFLAGS = $(FLAGS) -M
 CFLAGS = $(FLAGS) -c
 LFLAGS = $(FLAGS)
