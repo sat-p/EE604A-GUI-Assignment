@@ -2,10 +2,24 @@
 
 #include "../include/WC_MainWindow.h"
 
+void EE604A::GUI::WC_MainWindow::cb_Open_i(Fl_Menu_*, void*) {
+  WOpen_cb();
+}
+void EE604A::GUI::WC_MainWindow::cb_Open(Fl_Menu_* o, void* v) {
+  ((EE604A::GUI::WC_MainWindow*)(o->parent()))->cb_Open_i(o,v);
+}
+
+void EE604A::GUI::WC_MainWindow::cb_Quit_i(Fl_Menu_*, void*) {
+  WQuit_cb();
+}
+void EE604A::GUI::WC_MainWindow::cb_Quit(Fl_Menu_* o, void* v) {
+  ((EE604A::GUI::WC_MainWindow*)(o->parent()))->cb_Quit_i(o,v);
+}
+
 Fl_Menu_Item EE604A::GUI::WC_MainWindow::menu_[] = {
  {"&File", 0,  0, 0, 64, FL_NORMAL_LABEL, 0, 14, 0},
- {"&Open", 0,  0, 0, 0, FL_NORMAL_LABEL, 0, 14, 0},
- {"&Quit", 0,  0, 0, 0, FL_NORMAL_LABEL, 0, 14, 0},
+ {"&Open", 0,  (Fl_Callback*)EE604A::GUI::WC_MainWindow::cb_Open, 0, 0, FL_NORMAL_LABEL, 0, 14, 0},
+ {"&Quit", 0,  (Fl_Callback*)EE604A::GUI::WC_MainWindow::cb_Quit, 0, 0, FL_NORMAL_LABEL, 0, 14, 0},
  {0,0,0,0,0,0,0,0,0},
  {"&Tools", 0,  0, 0, 64, FL_NORMAL_LABEL, 0, 14, 0},
  {0,0,0,0,0,0,0,0,0},

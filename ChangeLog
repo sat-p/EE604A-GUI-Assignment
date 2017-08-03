@@ -1,5 +1,16 @@
 2017-08-03 Satya Panuganti <prakashsatya10@gmail.com>
 
+*WC_MainWindow  : Modified so that the appropriate callbacksa are being
+                  called for open and quit.
+*UI_MainWindow (WOpen_cb()) : A file chooser is now begin launched for
+                              choosing image files.
+
+*makeinclude : Modified so that opencv is being properly linked.
+
+/************************************************************************/
+
+2017-08-03 Satya Panuganti <prakashsatya10@gmail.com>
+
 *app            : Removed .dep files and 'main' bin file
 *WC_MainWindow  : Added to Fl_Box objects which are to be used to display
                   images

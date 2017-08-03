@@ -16,6 +16,11 @@ public:
   WC_MainWindow(int W, int H, const char *L = 0);
   WC_MainWindow();
   static Fl_Menu_Item menu_[];
+private:
+  inline void cb_Open_i(Fl_Menu_*, void*);
+  static void cb_Open(Fl_Menu_*, void*);
+  inline void cb_Quit_i(Fl_Menu_*, void*);
+  static void cb_Quit(Fl_Menu_*, void*);
 protected:
   Fl_Box *wImageBox1;
   Fl_Box *wImageBox2;

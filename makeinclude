@@ -4,7 +4,8 @@ AR = ar crv
 RM = rm -rf
 
 LIB = \
-	-lfltk
+	-lfltk \
+	`pkg-config opencv --cflags --libs`
     
 FLAGS = -Wall -O3 -std=c++11
 MFLAGS = $(FLAGS) -M
