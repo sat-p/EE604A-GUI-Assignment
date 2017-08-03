@@ -1,0 +1,18 @@
+CC = g++
+FLUID = fluid
+AR = ar crv
+RM = rm -rf
+
+LIB = \
+	-Lfltk
+    
+FLAGS = Wall -O3 -std=c++11
+MFLAGS = $(FLAGS) -M
+CFLAGS = $(FLAGS) -c
+LFLAGS = $(FLAGS)
+
+%.dep: %.cxx
+	$(CC) $(MFLAGS) $(INCLUDE) $< > $@
+    
+%.o: %.cxx
+	$(CC) $(CFLAGS) $(INCLUDE) $< -o $@
