@@ -1,5 +1,14 @@
 2017-08-03 Satya Panuganti <prakashsatya10@gmail.com>
 
+*app            : Removed .dep files and 'main' bin file
+*WC_MainWindow  : Added to Fl_Box objects which are to be used to display
+                  images
+*.gitignore     : Modified to ignore .dep files
+
+/************************************************************************/
+
+2017-08-03 Satya Panuganti <prakashsatya10@gmail.com>
+
 *app    : -Added Makefile in src
           -Added basic UI in the form of WC_MainWindow
           -Added helper class UI_MainWindow

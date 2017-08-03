@@ -41,6 +41,10 @@ this->when(FL_WHEN_RELEASE);
 { Fl_Menu_Bar* o = new Fl_Menu_Bar(0, 0, 800, 25);
   o->menu(menu_);
 } // Fl_Menu_Bar* o
+{ wImageBox1 = new Fl_Box(25, 50, 360, 270);
+} // Fl_Box* wImageBox1
+{ wImageBox2 = new Fl_Box(415, 50, 360, 270);
+} // Fl_Box* wImageBox2
 end();
 resizable(this);
 }

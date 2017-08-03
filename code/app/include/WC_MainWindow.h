@@ -7,6 +7,7 @@
 namespace EE604A {namespace GUI {class WC_MainWindow;}}; 
 #include <FL/Fl_Double_Window.H>
 #include <FL/Fl_Menu_Bar.H>
+#include <FL/Fl_Box.H>
 
 class EE604A::GUI::WC_MainWindow : public Fl_Double_Window {
   void _WC_MainWindow();
@@ -15,6 +16,9 @@ public:
   WC_MainWindow(int W, int H, const char *L = 0);
   WC_MainWindow();
   static Fl_Menu_Item menu_[];
+protected:
+  Fl_Box *wImageBox1;
+  Fl_Box *wImageBox2;
 private:
   virtual void WOpen_cb (void) {}; 
   virtual void WQuit_cb (void) {}; 

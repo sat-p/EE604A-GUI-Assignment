@@ -20,9 +20,9 @@ obj: ${OBJ}
 bin: main
 
 main: $(OBJ)
-	$(CC) $(LFLAGS) $(OBJ) $(LIB) -o $@
+	$(CC) $(LFLAGS) $(OBJ) $(LIB) -o $@.out
 
 clean:
-	$(RM) $(DEP) $(OBJ) main
+	$(RM) $(DEP) $(OBJ) main.out
 
 .PHONY: dep obj bin clean
