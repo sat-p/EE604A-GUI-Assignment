@@ -2,7 +2,8 @@ top_builddir = ../..
 include ${top_builddir}/makeinclude
 
 WC = \
-	ui/WC_MainWindow.fl
+	ui/WC_MainWindow.fl \
+	ui/WC_ImageBox.fl
 
 WC_H = ${WC:ui/%.fl=include/%.h}
 WC_SRC = ${WC:ui/%.fl=src/%.cxx}

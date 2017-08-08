@@ -3,13 +3,16 @@
 
 #include "WC_MainWindow.h"
 
+/*****************************************************************************/
+
 namespace  EE604A {
 namespace GUI {
 
 class UI_MainWindow : public WC_MainWindow
 {
 public:
-    UI_MainWindow (void) = default;
+    UI_MainWindow (void)
+    {}
     
 private:
     virtual void WOpen_cb (void) override;
@@ -17,5 +20,8 @@ private:
 };
 
 } } // namespaces EE604A, GUI 
+
+/*****************************************************************************/
+/*****************************************************************************/
 
 #endif

@@ -4,6 +4,8 @@ AR = ar crv
 RM = rm -rf
 
 LIB = \
+    -L${top_builddir}/code/tools/src \
+    -ltools \
 	-lfltk \
 	`pkg-config opencv --cflags --libs`
     

@@ -37,13 +37,13 @@ EE604A::GUI::WC_MainWindow::WC_MainWindow(int W, int H, const char *L)
 }
 
 EE604A::GUI::WC_MainWindow::WC_MainWindow()
-  : Fl_Double_Window(0, 0, 800, 600, "EE604A : Assignment [14610]") {
+  : Fl_Double_Window(0, 0, 800, 350, "EE604A : Assignment [14610]") {
   clear_flag(16);
   _WC_MainWindow();
 }
 
 void EE604A::GUI::WC_MainWindow::_WC_MainWindow() {
-this->box(FL_FLAT_BOX);
+this->box(FL_BORDER_BOX);
 this->color(FL_BACKGROUND_COLOR);
 this->selection_color(FL_BACKGROUND_COLOR);
 this->labeltype(FL_NO_LABEL);
@@ -53,12 +53,33 @@ this->labelcolor(FL_FOREGROUND_COLOR);
 this->align(Fl_Align(FL_ALIGN_TOP));
 this->when(FL_WHEN_RELEASE);
 { Fl_Menu_Bar* o = new Fl_Menu_Bar(0, 0, 800, 25);
+  o->window()->hotspot(o);
   o->menu(menu_);
 } // Fl_Menu_Bar* o
-{ wImageBox1 = new Fl_Box(25, 50, 360, 270);
-} // Fl_Box* wImageBox1
-{ wImageBox2 = new Fl_Box(415, 50, 360, 270);
-} // Fl_Box* wImageBox2
+{ wImageBox1 = new UI_ImageBox(25, 50, 360, 270);
+  wImageBox1->box(FL_NO_BOX);
+  wImageBox1->color(FL_BACKGROUND_COLOR);
+  wImageBox1->selection_color(FL_BACKGROUND_COLOR);
+  wImageBox1->labeltype(FL_NORMAL_LABEL);
+  wImageBox1->labelfont(0);
+  wImageBox1->labelsize(14);
+  wImageBox1->labelcolor(FL_FOREGROUND_COLOR);
+  wImageBox1->align(Fl_Align(FL_ALIGN_TOP));
+  wImageBox1->when(FL_WHEN_RELEASE);
+  wImageBox1->end();
+} // UI_ImageBox* wImageBox1
+{ wImageBox2 = new UI_ImageBox(415, 50, 360, 270);
+  wImageBox2->box(FL_NO_BOX);
+  wImageBox2->color(FL_BACKGROUND_COLOR);
+  wImageBox2->selection_color(FL_BACKGROUND_COLOR);
+  wImageBox2->labeltype(FL_NORMAL_LABEL);
+  wImageBox2->labelfont(0);
+  wImageBox2->labelsize(14);
+  wImageBox2->labelcolor(FL_FOREGROUND_COLOR);
+  wImageBox2->align(Fl_Align(FL_ALIGN_TOP));
+  wImageBox2->when(FL_WHEN_RELEASE);
+  wImageBox2->end();
+} // UI_ImageBox* wImageBox2
 end();
 resizable(this);
 }

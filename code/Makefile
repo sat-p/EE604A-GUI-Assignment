@@ -2,6 +2,7 @@ top_builddir = ..
 include ${top_builddir}/makeinclude
 
 DIRS = \
+	tools \
 	app
 
 all:

@@ -4,10 +4,10 @@
 #define WC_MainWindow_h
 #include <FL/Fl.H>
 #undef WC_MainWindow_h
+#include "UI_ImageBox.h"
 namespace EE604A {namespace GUI {class WC_MainWindow;}}; 
 #include <FL/Fl_Double_Window.H>
 #include <FL/Fl_Menu_Bar.H>
-#include <FL/Fl_Box.H>
 
 class EE604A::GUI::WC_MainWindow : public Fl_Double_Window {
   void _WC_MainWindow();
@@ -21,9 +21,9 @@ private:
   static void cb_Open(Fl_Menu_*, void*);
   inline void cb_Quit_i(Fl_Menu_*, void*);
   static void cb_Quit(Fl_Menu_*, void*);
-protected:
-  Fl_Box *wImageBox1;
-  Fl_Box *wImageBox2;
+public:
+  UI_ImageBox *wImageBox1;
+  UI_ImageBox *wImageBox2;
 private:
   virtual void WOpen_cb (void) {}; 
   virtual void WQuit_cb (void) {}; 

@@ -19,6 +19,9 @@ int main (int argc, char* argv[])
 		ui.reset (new EE604A::GUI::UI_MainWindow);
 		ui->resize (X, Y, W, H);
 		ui->show (argc, argv);
+        
+        ui->size_range (W, H, W, H);
+        
 		return Fl::run();
 	}
 	catch (std::exception& e)

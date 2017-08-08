@@ -2,11 +2,7 @@ top_builddir = ../../..
 include ${top_builddir}/makeinclude
 
 CPP_SRC = \
-	WC_ImageBox.cxx \
-	UI_ImageBox.cxx \
-	WC_MainWindow.cxx \
-	UI_MainWindow.cxx \
-	main.cxx
+	convert.cxx
 
 OBJ = ${CPP_SRC:%.cxx=%.o}
 DEP = ${CPP_SRC:%.cxx=%.dep}
@@ -19,12 +15,12 @@ dep: ${DEP}
 
 obj: ${OBJ}
 
-bin: main
+lib: libtools.a
 
-main: $(OBJ)
-	$(CC) $(LFLAGS) $(OBJ) $(LIB) -o $@.out
+libtools.a : ${OBJ}
+	${AR} $@ $(OBJ)
 
 clean:
-	$(RM) $(DEP) $(OBJ) main.out
+	$(RM) $(DEP) $(OBJ)
 
-.PHONY: dep obj bin clean
+.PHONY: dep obj clean
