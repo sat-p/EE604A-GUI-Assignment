@@ -8,6 +8,9 @@ decl {\#undef WC_MainWindow_h} {public global
 decl {\#include "UI_ImageBox.h"} {public global
 } 
 
+decl {\#include "UI_DrawImageBox.h"} {public global
+} 
+
 decl {namespace EE604A {namespace GUI {class WC_MainWindow;}}} {public global
 } 
 
@@ -45,14 +48,14 @@ widget_class {EE604A::GUI::WC_MainWindow} {
       }
       MenuItem {} {
         label {Option &2}
-        callback {WRemoval_cb();} selected
+        callback {WRemoval_cb();}
         xywh {0 0 36 20}
       }
     }
   }
-  Fl_Group wImageBox1 {open
+  Fl_Group wImageBox1 {open selected
     xywh {25 50 360 270}
-    class UI_ImageBox
+    class UI_DrawImageBox
   } {}
   Fl_Group wImageBox2 {open
     xywh {415 50 360 270}

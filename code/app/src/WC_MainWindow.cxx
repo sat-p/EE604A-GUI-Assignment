@@ -72,7 +72,7 @@ this->when(FL_WHEN_RELEASE);
   o->window()->hotspot(o);
   o->menu(menu_);
 } // Fl_Menu_Bar* o
-{ wImageBox1 = new UI_ImageBox(25, 50, 360, 270);
+{ wImageBox1 = new UI_DrawImageBox(25, 50, 360, 270);
   wImageBox1->box(FL_NO_BOX);
   wImageBox1->color(FL_BACKGROUND_COLOR);
   wImageBox1->selection_color(FL_BACKGROUND_COLOR);
@@ -83,7 +83,7 @@ this->when(FL_WHEN_RELEASE);
   wImageBox1->align(Fl_Align(FL_ALIGN_TOP));
   wImageBox1->when(FL_WHEN_RELEASE);
   wImageBox1->end();
-} // UI_ImageBox* wImageBox1
+} // UI_DrawImageBox* wImageBox1
 { wImageBox2 = new UI_ImageBox(415, 50, 360, 270);
   wImageBox2->box(FL_NO_BOX);
   wImageBox2->color(FL_BACKGROUND_COLOR);
