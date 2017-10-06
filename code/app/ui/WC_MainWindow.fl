@@ -13,8 +13,8 @@ decl {namespace EE604A {namespace GUI {class WC_MainWindow;}}} {public global
 
 widget_class {EE604A::GUI::WC_MainWindow} {
   label {EE604A : Assignment [14610]} open
-  xywh {1 73 800 350} type Double box BORDER_BOX resizable
-  class Fl_Double_Window visible
+  xywh {1 73 800 350} type Double box BORDER_BOX hide resizable
+  class Fl_Double_Window
 } {
   Fl_Menu_Bar {} {open
     xywh {0 0 800 25} hotspot
@@ -37,9 +37,20 @@ widget_class {EE604A::GUI::WC_MainWindow} {
     Submenu {} {
       label {&Tools} open
       xywh {0 0 70 20}
-    } {}
+    } {
+      MenuItem {} {
+        label {Option &1}
+        callback {WAutoenhance_cb();}
+        xywh {0 0 36 20}
+      }
+      MenuItem {} {
+        label {Option &2}
+        callback {WRemoval_cb();} selected
+        xywh {0 0 36 20}
+      }
+    }
   }
-  Fl_Group wImageBox1 {open selected
+  Fl_Group wImageBox1 {open
     xywh {25 50 360 270}
     class UI_ImageBox
   } {}
@@ -50,5 +61,9 @@ widget_class {EE604A::GUI::WC_MainWindow} {
   decl {virtual void WOpen_cb (void) {}} {private local
   }
   decl {virtual void WQuit_cb (void) {}} {private local
+  }
+  decl {virtual void WAutoenhance_cb (void) {}} {private local
+  }
+  decl {virtual void WRemoval_cb (void) {}} {private local
   }
 } 
