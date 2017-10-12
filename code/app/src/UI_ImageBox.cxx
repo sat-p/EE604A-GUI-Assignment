@@ -30,8 +30,8 @@ void UI_ImageBox::scale (void)
     if (_orig.empty())
         return;
     
-    const float box_x = wBox->w() - 10;
-    const float box_y = wBox->h() - 10;
+    const float box_x = wBox->w();
+    const float box_y = wBox->h();
     
     const float x_scale = box_x / _orig.cols;
     const float y_scale = box_y / _orig.rows;
@@ -51,7 +51,13 @@ void UI_ImageBox::scale (void)
     cv::resize (_orig, _resize,
                 cv::Size (x_size, y_size));
     
-    _image.reset (EE604A::tools::Mat_to_Fl_Image (_resize));
+    _shown = cv::Mat (cv::Size (box_x, box_y), _resize.type());
+    _shown = cv::Scalar::all (255);
+    _resize.copyTo (_shown (cv::Rect (box_x / 2 - (x_size / 2),
+                                      box_y / 2 - (y_size / 2),
+                                      x_size, y_size)));
+    
+    _image.reset (EE604A::tools::Mat_to_Fl_Image (_shown));
     
     wBox->image (_image.get());
     wBox->redraw();

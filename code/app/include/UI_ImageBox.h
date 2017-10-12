@@ -27,9 +27,12 @@ public:
 
 private:
     void scale (void);
+
+protected:
+    std::unique_ptr<Fl_RGB_Image> _image;
+    cv::Mat _shown;
     
 private:
-    std::unique_ptr<Fl_RGB_Image> _image;
     cv::Mat _orig;
     cv::Mat _resize;
 };

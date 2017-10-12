@@ -1,5 +1,11 @@
 2017-10-12 Satya Panuganti <prakashsatya10@gmail.com>
 
+* UI_DrawImageBox : Now able to draw a line of 1px length.
+
+/************************************************************************/
+                      
+2017-10-12 Satya Panuganti <prakashsatya10@gmail.com>
+
 * tools/convert.cxx : Fixed bug which caused blue and red channels to be
                       interchanged.
 
