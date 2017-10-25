@@ -1,5 +1,13 @@
 2017-10-25 Satya Panuganti <prakashsatya10@gmail.com>
 
+* UI_ImageBox.h : Added accessor function for the original image stored.
+* tools/slic : Added driver function for the slic algorithm
+* UI_MainWindow : Calling tools::slic() on pressing option 2.
+
+/************************************************************************/
+
+2017-10-25 Satya Panuganti <prakashsatya10@gmail.com>
+
 * algos : Added SLIC Superpixel Implementation and make to compile
 
 /************************************************************************/
@@ -16,7 +24,6 @@
 * WC_MainWindow.fl : Added Menu Items for the functions
 
 /************************************************************************/
-
 
 2017-08-08 Satya Panuganti <prakashsatya10@gmail.com>
 

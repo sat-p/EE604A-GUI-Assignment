@@ -24,7 +24,10 @@ public:
 public:
     void image (const cv::Mat& mat);
     void image (cv::Mat&& mat);    
-
+    
+    const cv::Mat& image (void)
+    { return _orig; }
+    
 private:
     void scale (void);
     

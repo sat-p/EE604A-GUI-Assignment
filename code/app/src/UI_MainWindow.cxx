@@ -1,8 +1,11 @@
 #include "../include/UI_MainWindow.h"
+#include "../../tools/include/slic.h"
 
 #include <opencv2/highgui/highgui.hpp>
 
 #include <FL/Fl_File_Chooser.H>
+
+#include <iostream>
 
 /*****************************************************************************/
 
@@ -24,6 +27,16 @@ void UI_MainWindow::WOpen_cb (void)
 
 void UI_MainWindow::WQuit_cb (void)
 { exit(0); }
+
+/*****************************************************************************/
+
+void UI_MainWindow::WRemoval_cb (void)
+{
+    auto result = EE604A::tools::slic (wImageBox1->image());
+    
+    std::cerr << "Button Pressed" << std::endl;
+}
+
 
 /*****************************************************************************/
 /*****************************************************************************/

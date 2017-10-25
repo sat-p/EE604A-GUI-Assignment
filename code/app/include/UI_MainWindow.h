@@ -17,6 +17,9 @@ public:
 private:
     virtual void WOpen_cb (void) override;
     virtual void WQuit_cb (void) override;
+    
+private:
+    virtual void WRemoval_cb (void) override;
 };
 
 } } // namespaces EE604A, GUI 
