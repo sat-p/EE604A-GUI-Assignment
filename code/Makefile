@@ -3,6 +3,7 @@ include ${top_builddir}/makeinclude
 
 DIRS = \
 	tools \
+	algos \
 	app
 
 all:
