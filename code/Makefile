@@ -2,8 +2,8 @@ top_builddir = ..
 include ${top_builddir}/makeinclude
 
 DIRS = \
-	tools \
 	algos \
+	tools \
 	app
 
 all:

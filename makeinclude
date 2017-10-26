@@ -6,8 +6,8 @@ RM = rm -rf
 LIB = \
     -L${top_builddir}/code/tools/src \
     -L${top_builddir}/code/algos/src \
-    -lalgos \
     -ltools \
+    -lalgos \
 	-lfltk \
 	`pkg-config opencv --cflags --libs`
     

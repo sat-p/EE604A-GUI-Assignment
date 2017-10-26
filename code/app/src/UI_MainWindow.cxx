@@ -33,6 +33,7 @@ void UI_MainWindow::WQuit_cb (void)
 void UI_MainWindow::WRemoval_cb (void)
 {
     auto result = EE604A::tools::slic (wImageBox1->image());
+    wImageBox2->image (result);
     
     std::cerr << "Button Pressed" << std::endl;
 }
