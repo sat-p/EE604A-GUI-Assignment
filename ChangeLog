@@ -1,5 +1,11 @@
 2017-10-25 Satya Panuganti <prakashsatya10@gmail.com>
 
+* algos/slic : Added revised version of SLIC Implementation
+
+/************************************************************************/
+
+2017-10-25 Satya Panuganti <prakashsatya10@gmail.com>
+
 * UI_ImageBox.h : Added accessor function for the original image stored.
 * tools/slic : Added driver function for the slic algorithm
 * UI_MainWindow : Calling tools::slic() on pressing option 2.
