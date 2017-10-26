@@ -22,17 +22,20 @@ public:
     {}
 
 public:
-    void image (const cv::Mat& mat);
-    void image (cv::Mat&& mat);    
+    virtual void image (const cv::Mat& mat);
+    virtual void image (cv::Mat&& mat);    
     
     const cv::Mat& image (void)
     { return _orig; }
     
 private:
     void scale (void);
+
+protected:
+    std::unique_ptr<Fl_RGB_Image> _image;
+    cv::Mat _shown;
     
 private:
-    std::unique_ptr<Fl_RGB_Image> _image;
     cv::Mat _orig;
     cv::Mat _resize;
 };

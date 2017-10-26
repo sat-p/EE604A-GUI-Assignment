@@ -5,6 +5,7 @@
 #include <FL/Fl.H>
 #undef WC_MainWindow_h
 #include "UI_ImageBox.h"
+#include "UI_DrawImageBox.h"
 namespace EE604A {namespace GUI {class WC_MainWindow;}}; 
 #include <FL/Fl_Double_Window.H>
 #include <FL/Fl_Menu_Bar.H>
@@ -26,7 +27,7 @@ private:
   inline void cb_Option1_i(Fl_Menu_*, void*);
   static void cb_Option1(Fl_Menu_*, void*);
 public:
-  UI_ImageBox *wImageBox1;
+  UI_DrawImageBox *wImageBox1;
   UI_ImageBox *wImageBox2;
 private:
   virtual void WOpen_cb (void) {}; 

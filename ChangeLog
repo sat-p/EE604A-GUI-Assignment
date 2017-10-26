@@ -1,5 +1,13 @@
 2017-10-26 Satya Panuganti <prakashsatya10@gmail.com>
 
+* UI_DrawImageBox : A circle of 2px radius is being drawn on clicking.
+                    Also clicked coordinates are being cleared on changing
+                    image.
+
+/************************************************************************/
+
+2017-10-26 Satya Panuganti <prakashsatya10@gmail.com>
+
 * alogs/slic : Added convenience variables and functions to make SLICGC
                more efficient
 
@@ -44,8 +52,21 @@
 
 2017-10-12 Satya Panuganti <prakashsatya10@gmail.com>
 
+* UI_DrawImageBox : Now able to draw a line of 1px length.
+
+/************************************************************************/
+                      
+2017-10-12 Satya Panuganti <prakashsatya10@gmail.com>
+
 * tools/convert.cxx : Fixed bug which caused blue and red channels to be
                       interchanged.
+
+/************************************************************************/
+
+2017-10-06 Satya Panuganti <prakashsatya10@gmail.com>
+
+* UI_DrawImageBox : Added class to store images and to draw over them.
+                    Able to store and fetch coordinates now.
 
 /************************************************************************/
 
