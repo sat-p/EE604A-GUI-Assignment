@@ -18,10 +18,22 @@ public:
         UI_ImageBox (X, Y, W, H, L)
     {}
 
+public:
+    void image (const cv::Mat& mat) override
+    {
+        _coordinates.clear();
+        UI_ImageBox::image (mat);
+    }
+    void image (cv::Mat&& mat) override
+    {
+        _coordinates.clear();
+        UI_ImageBox::image (std::move (mat));
+    }
+    
 private:
     int handle (int event) override;
     
-private:
+public:
     std::set<std::pair<int, int>> _coordinates;
 };
 

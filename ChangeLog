@@ -1,3 +1,11 @@
+2017-10-26 Satya Panuganti <prakashsatya10@gmail.com>
+
+* UI_DrawImageBox : A circle of 2px radius is being drawn on clicking.
+                    Also clicked coordinates are being cleared on changing
+                    image.
+
+/************************************************************************/
+
 2017-10-12 Satya Panuganti <prakashsatya10@gmail.com>
 
 * UI_DrawImageBox : Now able to draw a line of 1px length.

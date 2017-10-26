@@ -22,8 +22,8 @@ public:
     {}
 
 public:
-    void image (const cv::Mat& mat);
-    void image (cv::Mat&& mat);    
+    virtual void image (const cv::Mat& mat);
+    virtual void image (cv::Mat&& mat);    
 
 private:
     void scale (void);

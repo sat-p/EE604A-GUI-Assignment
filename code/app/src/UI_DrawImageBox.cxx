@@ -1,7 +1,7 @@
 #include "../include/UI_DrawImageBox.h"
 #include "../../tools/include/convert.h"
 
-#include <iostream>
+#include <opencv2/imgproc/imgproc.hpp>
 
 /*****************************************************************************/
 
@@ -27,7 +27,12 @@ int UI_DrawImageBox::handle (int event)
                 
                 _coordinates.emplace (x, y);
                 
-                _shown.at<cv::Vec3b> (cv::Point (x, y)) = cv::Vec3b (0, 0, 0);                    
+                cv::circle (_shown,
+                            cv::Point (x, y),
+                            4,
+                            cv::Vec3b (0, 0, 0),
+                            -1);
+
                 _image.reset (EE604A::tools::Mat_to_Fl_Image (_shown));
     
                 wBox->image (_image.get());
