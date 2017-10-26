@@ -33,7 +33,7 @@ constexpr int NR_ITERATIONS = 10;
  * distance parameter.
  */
 class Slic {
-    private:
+    protected:
         /* The cluster assignments and distance values for each pixel. */
         vec2di clusters;
         vec2dd distances;
@@ -42,6 +42,9 @@ class Slic {
         vec2dd centers;
         /* The number of occurences of each center. */
         std::vector<int> center_counts;
+        
+        /* The points which lie along the contours */
+        std::vector<cv::Point> contours;
         
         /* The step size per cluster, and the colour (nc) and distance (ns)
          * parameters. */
@@ -64,7 +67,7 @@ class Slic {
         /* Generate an over-segmentation for an image. */
         void generate_superpixels(const cv::Mat& image, int step, int nc);
         /* Enforce connectivity for an image. */
-        void create_connectivity(const cv::Mat& image);
+//         void create_connectivity(const cv::Mat& image);
         
         /* Draw functions. Resp. displayal of the centers and the contours. */
         void display_center_grid(cv::Mat& image, const cv::Vec3b& colour);

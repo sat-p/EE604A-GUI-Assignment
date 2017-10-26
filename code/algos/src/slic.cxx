@@ -2,6 +2,8 @@
 
 #include <opencv2/imgproc/imgproc.hpp>
 
+#include <iostream>
+
 /*
  * Constructor. Nothing is done here.
  */
@@ -215,68 +217,68 @@ void Slic::generate_superpixels(const cv::Mat& image, int step, int nc) {
  * Input : The image (cv::Mat&).
  * Output: -
  */
-void Slic::create_connectivity(const cv::Mat& image) {
-    int label = 0, adjlabel = 0;
-    const int lims = (image.cols * image.rows) / ((int)centers.size());
-    
-    const int dx4[4] = {-1,  0,  1,  0};
-	const int dy4[4] = { 0, -1,  0,  1};
-    
-    /* Initialize the new cluster matrix. */
-    vec2di new_clusters;
-    for (int i = 0; i < image.cols; i++) { 
-        std::vector<int> nc;
-        for (int j = 0; j < image.rows; j++) {
-            nc.push_back(-1);
-        }
-        new_clusters.push_back(nc);
-    }
-
-    for (int i = 0; i < image.cols; i++) {
-        for (int j = 0; j < image.rows; j++) {
-            if (new_clusters[i][j] == -1) {
-                std::vector<cv::Point> elements;
-                elements.push_back(cv::Point(i, j));
-            
-                /* Find an adjacent label, for possible use later. */
-                for (int k = 0; k < 4; k++) {
-                    int x = elements[0].x + dx4[k], y = elements[0].y + dy4[k];
-                    
-                    if (x >= 0 && x < image.cols && y >= 0 && y < image.rows) {
-                        if (new_clusters[x][y] >= 0) {
-                            adjlabel = new_clusters[x][y];
-                        }
-                    }
-                }
-                
-                int count = 1;
-                for (int c = 0; c < count; c++) {
-                    for (int k = 0; k < 4; k++) {
-                        int x = elements[c].x + dx4[k], y = elements[c].y + dy4[k];
-                        
-                        if (x >= 0 && x < image.cols && y >= 0 && y < image.rows) {
-                            if (new_clusters[x][y] == -1 && clusters[i][j] == clusters[x][y]) {
-                                elements.push_back(cv::Point(x, y));
-                                new_clusters[x][y] = label;
-                                count += 1;
-                            }
-                        }
-                    }
-                }
-                
-                /* Use the earlier found adjacent label if a segment size is
-                   smaller than a limit. */
-                if (count <= lims >> 2) {
-                    for (int c = 0; c < count; c++) {
-                        new_clusters[elements[c].x][elements[c].y] = adjlabel;
-                    }
-                    label -= 1;
-                }
-                label += 1;
-            }
-        }
-    }
-}
+// void Slic::create_connectivity(const cv::Mat& image) {
+//     int label = 0, adjlabel = 0;
+//     const int lims = (image.cols * image.rows) / ((int)centers.size());
+//     
+//     const int dx4[4] = {-1,  0,  1,  0};
+// 	const int dy4[4] = { 0, -1,  0,  1};
+//     
+//     /* Initialize the new cluster matrix. */
+//     vec2di new_clusters;
+//     for (int i = 0; i < image.cols; i++) { 
+//         std::vector<int> nc;
+//         for (int j = 0; j < image.rows; j++) {
+//             nc.push_back(-1);
+//         }
+//         new_clusters.push_back(nc);
+//     }
+// 
+//     for (int i = 0; i < image.cols; i++) {
+//         for (int j = 0; j < image.rows; j++) {
+//             if (new_clusters[i][j] == -1) {
+//                 std::vector<cv::Point> elements;
+//                 elements.push_back(cv::Point(i, j));
+//             
+//                 /* Find an adjacent label, for possible use later. */
+//                 for (int k = 0; k < 4; k++) {
+//                     int x = elements[0].x + dx4[k], y = elements[0].y + dy4[k];
+//                     
+//                     if (x >= 0 && x < image.cols && y >= 0 && y < image.rows) {
+//                         if (new_clusters[x][y] >= 0) {
+//                             adjlabel = new_clusters[x][y];
+//                         }
+//                     }
+//                 }
+//                 
+//                 int count = 1;
+//                 for (int c = 0; c < count; c++) {
+//                     for (int k = 0; k < 4; k++) {
+//                         int x = elements[c].x + dx4[k], y = elements[c].y + dy4[k];
+//                         
+//                         if (x >= 0 && x < image.cols && y >= 0 && y < image.rows) {
+//                             if (new_clusters[x][y] == -1 && clusters[i][j] == clusters[x][y]) {
+//                                 elements.push_back(cv::Point(x, y));
+//                                 new_clusters[x][y] = label;
+//                                 count += 1;
+//                             }
+//                         }
+//                     }
+//                 }
+//                 
+//                 /* Use the earlier found adjacent label if a segment size is
+//                    smaller than a limit. */
+//                 if (count <= lims >> 2) {
+//                     for (int c = 0; c < count; c++) {
+//                         new_clusters[elements[c].x][elements[c].y] = adjlabel;
+//                     }
+//                     label -= 1;
+//                 }
+//                 label += 1;
+//             }
+//         }
+//     }
+// }
 
 /*
  * Display the cluster centers.
@@ -302,7 +304,8 @@ void Slic::display_contours(cv::Mat& image, const cv::Vec3b& colour) {
 	
 	/* Initialize the contour std::vector and the matrix detailing whether a pixel
 	 * is already taken to be a contour. */
-	std::vector<cv::Point> contours;
+	contours.clear();
+    
 	vec2db istaken;
 	for (int i = 0; i < image.cols; i++) { 
         std::vector<bool> nb;

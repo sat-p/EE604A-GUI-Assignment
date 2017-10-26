@@ -1,5 +1,5 @@
 #include "../include/slic.h"
-#include "../../algos/include/slic.h"
+#include "../../algos/include/slicGC.h"
 
 #include <cmath>
 #include <opencv2/imgproc/imgproc.hpp>
@@ -28,12 +28,16 @@ cv::Mat EE604A::tools::slic (const cv::Mat& img)
     
     const double step = std::sqrt (w * h) / NR_SUPERPIXELS;
     
-    Slic slic;
+    EE604A::algos::SlicGC slic;
     slic.generate_superpixels (lab_img, step, NC);
-    slic.create_connectivity (lab_img);
+//     slic.create_connectivity (lab_img);
     
-    auto res = img.clone();
-    slic.display_contours (res, cv::Vec3b (0, 0, 255)); // color in BGR format
+    slic.display_contours (lab_img, cv::Vec3b (0, 0, 255)); // color in BGR format
+    slic.create_graph();
+    slic.colour_graph (lab_img);
+    
+    cv::Mat res;
+    cv::cvtColor (lab_img, res, CV_Lab2BGR);
     
     return res;
 }

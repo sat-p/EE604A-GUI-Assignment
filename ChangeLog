@@ -1,5 +1,13 @@
 2017-10-26 Satya Panuganti <prakashsatya10@gmail.com>
 
+* algos/slicGC : Added a segmentation method which merges neighboring
+                 similar superpixels. Tested with small dataset.
+* algos/slic : Commented out the create_connectivity function.
+                 
+/************************************************************************/
+
+2017-10-26 Satya Panuganti <prakashsatya10@gmail.com>
+
 * tools/slic : Added convenience function which runs the SLIC algorithm
                on an input image.
 * UI_MainWindow : Output of SLIC algorithm is beging shown in the second
