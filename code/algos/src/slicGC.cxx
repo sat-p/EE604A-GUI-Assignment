@@ -7,12 +7,17 @@
 /*****************************************************************************/
 
 typedef EE604A::algos::SlicGC SlicGC;
-constexpr int thresh = 50;
+constexpr int thresh = 40;
 
 /*****************************************************************************/
 
 void SlicGC::create_graph (void)
 {
+    if (!contours.size())
+        std::cerr << "generate_contours() needs to be called" << std::endl;
+    if (!colours.size())
+        std::cerr << "generate_cluster_means() needs to be called" << std::endl;
+    
     constexpr int N_SIZE = 8;
     
     const int dx[N_SIZE] = {-1, -1,  0,  1, 1, 1, 0, -1};
@@ -20,9 +25,6 @@ void SlicGC::create_graph (void)
     
     adjList.clear();
     adjList.resize (centers.size());
-    
-    const int cols = distances.size();
-    const int rows = distances.front().size();
     
     for (const cv::Point& p : contours) {
         for (int k = 0; k < N_SIZE; ++k) {
@@ -60,9 +62,8 @@ void SlicGC::create_graph (void)
     std::cout << "The number of segments is : " << label + 1 << std::endl;
     
     segmentColour.resize (label + 1);
-    for (auto& cc : segmentColour) {
+    for (auto& cc : segmentColour)
         cc.fill (0);
-    }
     
     std::vector<int> count (label + 1, 0);
     
@@ -71,9 +72,9 @@ void SlicGC::create_graph (void)
         const int c = segments[i];
         ++count[c];
         
-        segmentColour[c][0] += centers[i][0];
-        segmentColour[c][1] += centers[i][1];
-        segmentColour[c][2] += centers[i][2];
+        segmentColour[c][0] += colours[i][0];
+        segmentColour[c][1] += colours[i][1];
+        segmentColour[c][2] += colours[i][2];
     }
     
     for (int i = 0; i < (int) segmentColour.size(); ++i) {

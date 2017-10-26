@@ -46,10 +46,16 @@ class Slic {
         /* The points which lie along the contours */
         std::vector<cv::Point> contours;
         
+        /* The mean colours of the clusters */
+        std::vector<cv::Vec3d> colours;
+        
         /* The step size per cluster, and the colour (nc) and distance (ns)
          * parameters. */
         int step, nc, ns;
+        int rows, cols;
         
+    private:
+            
         /* Compute the distance between a center and an individual pixel. */
         double compute_dist(int ci, const cv::Point& pixel, const cv::Vec3b& colour);
         /* Find the pixel with the lowest gradient in a 3x3 surrounding. */
@@ -68,6 +74,10 @@ class Slic {
         void generate_superpixels(const cv::Mat& image, int step, int nc);
         /* Enforce connectivity for an image. */
 //         void create_connectivity(const cv::Mat& image);
+        
+        /* Other generation functions */
+        void generate_contours (void);
+        void generate_cluster_means (const cv::Mat& image);
         
         /* Draw functions. Resp. displayal of the centers and the contours. */
         void display_center_grid(cv::Mat& image, const cv::Vec3b& colour);

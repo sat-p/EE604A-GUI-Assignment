@@ -1,5 +1,12 @@
 2017-10-26 Satya Panuganti <prakashsatya10@gmail.com>
 
+* alogs/slic : Added convenience variables and functions to make SLICGC
+               more efficient
+
+/************************************************************************/
+
+2017-10-26 Satya Panuganti <prakashsatya10@gmail.com>
+
 * algos/slicGC : Added a segmentation method which merges neighboring
                  similar superpixels. Tested with small dataset.
 * algos/slic : Commented out the create_connectivity function.
