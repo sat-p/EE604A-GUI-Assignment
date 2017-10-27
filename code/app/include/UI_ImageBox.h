@@ -26,11 +26,15 @@ public:
     virtual void image (cv::Mat&& mat);    
     
     const cv::Mat& image (void)
-    { return _orig; }
+    { return _resize; }
     
 private:
     void scale (void);
 
+public:
+    int offset_x;
+    int offset_y;
+    
 protected:
     std::unique_ptr<Fl_RGB_Image> _image;
     cv::Mat _shown;

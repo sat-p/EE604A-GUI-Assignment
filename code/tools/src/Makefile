@@ -2,8 +2,7 @@ top_builddir = ../../..
 include ${top_builddir}/makeinclude
 
 CPP_SRC = \
-	convert.cxx \
-	slic.cxx
+	convert.cxx
 
 OBJ = ${CPP_SRC:%.cxx=%.o}
 DEP = ${CPP_SRC:%.cxx=%.dep}

@@ -51,10 +51,13 @@ void UI_ImageBox::scale (void)
     cv::resize (_orig, _resize,
                 cv::Size (x_size, y_size));
     
+    offset_x = box_x / 2 - (x_size / 2);
+    offset_y = box_y / 2 - (y_size / 2);
+    
     _shown = cv::Mat (cv::Size (box_x, box_y), _resize.type());
     _shown = cv::Scalar::all (255);
-    _resize.copyTo (_shown (cv::Rect (box_x / 2 - (x_size / 2),
-                                      box_y / 2 - (y_size / 2),
+    _resize.copyTo (_shown (cv::Rect (offset_x,
+                                      offset_y,
                                       x_size, y_size)));
     
     _image.reset (EE604A::tools::Mat_to_Fl_Image (_shown));

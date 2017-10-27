@@ -5,7 +5,7 @@
 
 #include <FL/Fl_File_Chooser.H>
 
-#include <iostream>
+#include <vector>
 
 /*****************************************************************************/
 
@@ -32,7 +32,12 @@ void UI_MainWindow::WQuit_cb (void)
 
 void UI_MainWindow::WRemoval_cb (void)
 {
-    auto result = EE604A::tools::slic (wImageBox1->image());
+    std::vector<cv::Point> points;
+    for (const auto& p : wImageBox1->_coordinates)
+        points.emplace_back (p.first - wImageBox1->offset_x,
+                             p.second - wImageBox1->offset_y);
+    
+    auto result = EE604A::tools::slic (wImageBox1->image(), points);
     wImageBox2->image (result);
 }
 

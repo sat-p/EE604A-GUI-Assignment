@@ -1,3 +1,10 @@
+2017-10-27 Satya Panuganti <prakashsatya10@gmail.com>
+
+Selected points on input image are being made to belong to the same 
+segment.
+
+/************************************************************************/
+
 2017-10-26 Satya Panuganti <prakashsatya10@gmail.com>
 
 * UI_DrawImageBox : A circle of 2px radius is being drawn on clicking.

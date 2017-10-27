@@ -23,8 +23,11 @@ void SlicGC::create_graph (void)
     const int dx[N_SIZE] = {-1, -1,  0,  1, 1, 1, 0, -1};
 	const int dy[N_SIZE] = { 0, -1, -1, -1, 0, 1, 1,  1};
     
-    adjList.clear();
-    adjList.resize (centers.size());
+    if (adjList.size() != centers.size()) {
+        
+        adjList.clear();
+        adjList.resize (centers.size());
+    }
     
     for (const cv::Point& p : contours) {
         for (int k = 0; k < N_SIZE; ++k) {
