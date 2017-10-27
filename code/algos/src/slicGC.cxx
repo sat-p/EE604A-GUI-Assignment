@@ -54,38 +54,32 @@ void SlicGC::create_graph (void)
     
     segments.resize (centers.size());
     std::fill (segments.begin(), segments.end(), -1);
+    segmentClusters.clear();
     
-    label = -1;
     for (int i = 0; i < (int) segments.size(); ++i)
         if (segments[i] == -1) {
-            ++label;
+            segmentClusters.emplace_back();
             dfs (i);
         }
     
-    std::cout << "The number of segments is : " << label + 1 << std::endl;
+    std::cout << "The number of segments is : " << segmentClusters.size() << std::endl;
     
-    segmentColour.resize (label + 1);
+    segmentColour.resize (segmentClusters.size());
     for (auto& cc : segmentColour)
         cc.fill (0);
     
-    std::vector<int> count (label + 1, 0);
-    
-    for (int i = 0; i < (int) centers.size(); ++i) {
-    
-        const int c = segments[i];
-        ++count[c];
+    for (int i = 0; i < (int) segmentClusters.size(); ++i) {
+        for (const auto& c : segmentClusters[i]) {
         
-        segmentColour[c][0] += colours[i][0];
-        segmentColour[c][1] += colours[i][1];
-        segmentColour[c][2] += colours[i][2];
+            segmentColour[i][0] += colours[c][0];
+            segmentColour[i][1] += colours[c][1];
+            segmentColour[i][2] += colours[c][2];
+        }
+        
+        segmentColour[i][0] /= segmentClusters[i].size();
+        segmentColour[i][1] /= segmentClusters[i].size();
+        segmentColour[i][2] /= segmentClusters[i].size();
     }
-    
-    for (int i = 0; i < (int) segmentColour.size(); ++i) {
-    
-        segmentColour[i][0] /= count[i];
-        segmentColour[i][1] /= count[i];
-        segmentColour[i][2] /= count[i];
-    }        
 }
 
 /*****************************************************************************/
@@ -111,7 +105,8 @@ void SlicGC::colour_graph (cv::Mat& image)
 
 void SlicGC::dfs (int c)
 {
-    segments[c] = label;
+    segmentClusters.back().push_back (c);
+    segments[c] = segmentClusters.size() - 1;
 
     for (int d : adjList[c])
         if (segments[d] == -1)

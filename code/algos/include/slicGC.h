@@ -7,6 +7,7 @@
 #include <vector>
 #include <set>
 #include <array>
+#include <iostream>
 
 namespace EE604A {
 namespace algos  {
@@ -60,8 +61,7 @@ protected:
     std::vector<int> segments;
     std::vector<std::array<double, 3>> segmentColour;
     
-private:
-    int label;
+    std::vector<std::vector<int>> segmentClusters;
 };
 
 }} //namespace EE604A, ALGOS

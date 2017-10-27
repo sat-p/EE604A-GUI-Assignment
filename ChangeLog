@@ -1,5 +1,11 @@
 2017-10-27 Satya Panuganti <prakashsatya10@gmail.com>
 
+* algos/slicGC : Modified to store superpixels present in each segment
+
+/************************************************************************/
+
+2017-10-27 Satya Panuganti <prakashsatya10@gmail.com>
+
 Selected points on input image are being made to belong to the same 
 segment.
 
