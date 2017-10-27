@@ -4,9 +4,11 @@
 #include "../../algos/include/slicGC.h"
 
 #include <cmath>
+#include <iostream>
+#include <string>
 
-#include <opencv2/imgproc/imgproc.hpp>
 #include <opencv2/core/core.hpp>
+#include <opencv2/imgproc/imgproc.hpp>
 
 namespace EE604A {
 namespace tools  {
@@ -25,6 +27,12 @@ cv::Mat slic (const cv::Mat& img, const container& connected)
     constexpr int NR_SUPERPIXELS = 40;
     constexpr int NC = 100;
     
+    if (!connected.size()) {
+    
+        std::cerr << "No point on input image has been selected" << std::endl;
+        return img;
+    }
+    
     auto lab_img = img.clone();
     
     cv::cvtColor (img, lab_img, CV_BGR2Lab);
@@ -42,11 +50,14 @@ cv::Mat slic (const cv::Mat& img, const container& connected)
     slic.create_connections (connected);
     
     slic.create_graph();
-    slic.colour_graph (lab_img);
+        
+    const cv::Mat& mask = slic.fetch_mask (connected);
     
     cv::Mat res;
-    cv::cvtColor (lab_img, res, CV_Lab2BGR);
-    slic.display_contours (res, cv::Vec3b (0, 0, 255));
+    cv::blur (img, res, cv::Size (100, 100));
+    
+    img.copyTo (res, mask);
+    slic.display_contours (res, cv::Vec3b (0,0,255));
     
     return res;
 }

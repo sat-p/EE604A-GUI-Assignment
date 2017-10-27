@@ -7,6 +7,9 @@
 #include <vector>
 #include <set>
 #include <array>
+#include <iostream>
+#include <utility>
+#include <cassert>
 
 namespace EE604A {
 namespace algos  {
@@ -50,6 +53,32 @@ public:
             ++it1;
             ++it2;
         }
+    }
+    
+    template<typename container>
+    cv::Mat fetch_mask (const container& connected)
+    {
+        int s_id = -1;
+        
+        for (const auto& p : connected) {
+            if (p.x >= 0 && p.x < cols && p.y >= 0 && p.y < rows) {
+                
+                s_id = segments[clusters[p.x][p.y]];
+                break;
+            }
+        }
+        
+        cv::Mat mask = cv::Mat::zeros (cv::Size (cols, rows), CV_8UC1);
+        assert (mask.cols == cols && mask.rows == rows);
+        if (s_id != -1)
+            for (int j = 0; j < mask.cols; ++j) {
+                for (int k = 0; k < mask.rows; ++k) {
+                    if (segments[clusters[j][k]] == s_id)
+                        mask.at<uchar> (k, j) = 255;
+                }
+            }
+        
+        return mask;
     }
     
 private:
