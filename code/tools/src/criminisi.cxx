@@ -1,5 +1,7 @@
 #include "../include/criminisi.h"
 
+#include <opencv2/imgproc/imgproc.hpp>
+
 /*****************************************************************************/
 
 /*
@@ -10,7 +12,17 @@
 
 cv::Mat EE604A::tools::criminisi (const cv::Mat& img, const cv::Mat& mask)
 {
-    return cv::Mat();
+    cv::Mat lab_img;
+    cv::cvtColor (img, lab_img, CV_BGR2Lab);
+    
+    Criminisi criminisi (lab_img);
+    
+    criminisi.mask (mask);
+    const auto& res_lab = criminisi.generate();
+    cv::Mat res;
+    
+    cv::cvtColor (res_lab, res, CV_Lab2BGR);
+    return res;
 }
 
 /*****************************************************************************/

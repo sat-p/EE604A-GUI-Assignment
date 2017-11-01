@@ -1,5 +1,6 @@
 #include "../include/UI_MainWindow.h"
 #include "../../tools/include/slic.h"
+#include "../../tools/include/criminisi.h"
 
 #include <opencv2/highgui/highgui.hpp>
 
@@ -30,7 +31,7 @@ void UI_MainWindow::WQuit_cb (void)
 
 /*****************************************************************************/
 
-void UI_MainWindow::WRemoval_cb (void)
+void UI_MainWindow::WBlur_cb (void)
 {
     std::vector<cv::Point> points;
     for (const auto& p : wImageBox1->_coordinates)
@@ -41,6 +42,25 @@ void UI_MainWindow::WRemoval_cb (void)
     wImageBox2->image (result);
 }
 
+/*****************************************************************************/
+
+void UI_MainWindow::WRemove_cb (void)
+{
+    cv::Mat mask = cv::Mat::zeros (wImageBox1->image().size(), CV_8UC1);
+    
+    for (const auto& p : wImageBox1->_coordinates)
+        cv::circle (mask,
+                    cv::Point (p.first - wImageBox1->offset_x,
+                               p.second - wImageBox1->offset_y),
+                    4,
+                    255,
+                    -1);
+    
+    std::cerr << __PRETTY_FUNCTION__ << std::endl;
+        
+    auto result = EE604A::tools::criminisi (wImageBox1->image(), mask);
+    wImageBox2->image (result);
+}
 
 /*****************************************************************************/
 /*****************************************************************************/

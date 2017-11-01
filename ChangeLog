@@ -1,5 +1,12 @@
 2017-11-01 Satya Panuganti <prakashsatya10@gmail.com>
 
+* algos/criminsi : Added updated version of Exempler-inpainting.
+* tools/criminsi : Completed driver function.
+
+/************************************************************************/
+
+2017-11-01 Satya Panuganti <prakashsatya10@gmail.com>
+
 * algos/criminsi : Added an Implementation of Criminsi et al's inpainting
                    algorithm.
 * tools/criminsi : Created basic structure of driver function for the

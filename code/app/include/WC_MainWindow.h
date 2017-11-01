@@ -22,17 +22,17 @@ private:
   static void cb_Open(Fl_Menu_*, void*);
   inline void cb_Quit_i(Fl_Menu_*, void*);
   static void cb_Quit(Fl_Menu_*, void*);
-  inline void cb_Option_i(Fl_Menu_*, void*);
-  static void cb_Option(Fl_Menu_*, void*);
-  inline void cb_Option1_i(Fl_Menu_*, void*);
-  static void cb_Option1(Fl_Menu_*, void*);
+  inline void cb_Remove_i(Fl_Menu_*, void*);
+  static void cb_Remove(Fl_Menu_*, void*);
+  inline void cb_Blur_i(Fl_Menu_*, void*);
+  static void cb_Blur(Fl_Menu_*, void*);
 public:
   UI_DrawImageBox *wImageBox1;
   UI_ImageBox *wImageBox2;
 private:
   virtual void WOpen_cb (void) {}; 
   virtual void WQuit_cb (void) {}; 
-  virtual void WAutoenhance_cb (void) {}; 
-  virtual void WRemoval_cb (void) {}; 
+  virtual void WRemove_cb (void) {}; 
+  virtual void WBlur_cb (void) {}; 
 };
 #endif

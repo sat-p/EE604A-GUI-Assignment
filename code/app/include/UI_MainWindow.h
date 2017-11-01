@@ -19,7 +19,8 @@ private:
     virtual void WQuit_cb (void) override;
     
 private:
-    virtual void WRemoval_cb (void) override;
+    virtual void WBlur_cb (void) override;
+    virtual void WRemove_cb (void) override;
 };
 
 } } // namespaces EE604A, GUI 

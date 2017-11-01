@@ -16,18 +16,18 @@ void EE604A::GUI::WC_MainWindow::cb_Quit(Fl_Menu_* o, void* v) {
   ((EE604A::GUI::WC_MainWindow*)(o->parent()))->cb_Quit_i(o,v);
 }
 
-void EE604A::GUI::WC_MainWindow::cb_Option_i(Fl_Menu_*, void*) {
-  WAutoenhance_cb();
+void EE604A::GUI::WC_MainWindow::cb_Remove_i(Fl_Menu_*, void*) {
+  WRemove_cb();
 }
-void EE604A::GUI::WC_MainWindow::cb_Option(Fl_Menu_* o, void* v) {
-  ((EE604A::GUI::WC_MainWindow*)(o->parent()))->cb_Option_i(o,v);
+void EE604A::GUI::WC_MainWindow::cb_Remove(Fl_Menu_* o, void* v) {
+  ((EE604A::GUI::WC_MainWindow*)(o->parent()))->cb_Remove_i(o,v);
 }
 
-void EE604A::GUI::WC_MainWindow::cb_Option1_i(Fl_Menu_*, void*) {
-  WRemoval_cb();
+void EE604A::GUI::WC_MainWindow::cb_Blur_i(Fl_Menu_*, void*) {
+  WBlur_cb();
 }
-void EE604A::GUI::WC_MainWindow::cb_Option1(Fl_Menu_* o, void* v) {
-  ((EE604A::GUI::WC_MainWindow*)(o->parent()))->cb_Option1_i(o,v);
+void EE604A::GUI::WC_MainWindow::cb_Blur(Fl_Menu_* o, void* v) {
+  ((EE604A::GUI::WC_MainWindow*)(o->parent()))->cb_Blur_i(o,v);
 }
 
 Fl_Menu_Item EE604A::GUI::WC_MainWindow::menu_[] = {
@@ -36,8 +36,8 @@ Fl_Menu_Item EE604A::GUI::WC_MainWindow::menu_[] = {
  {"&Quit", 0,  (Fl_Callback*)EE604A::GUI::WC_MainWindow::cb_Quit, 0, 0, FL_NORMAL_LABEL, 0, 14, 0},
  {0,0,0,0,0,0,0,0,0},
  {"&Tools", 0,  0, 0, 64, FL_NORMAL_LABEL, 0, 14, 0},
- {"Option &1", 0,  (Fl_Callback*)EE604A::GUI::WC_MainWindow::cb_Option, 0, 0, FL_NORMAL_LABEL, 0, 14, 0},
- {"Option &2", 0,  (Fl_Callback*)EE604A::GUI::WC_MainWindow::cb_Option1, 0, 0, FL_NORMAL_LABEL, 0, 14, 0},
+ {"&Remove", 0,  (Fl_Callback*)EE604A::GUI::WC_MainWindow::cb_Remove, 0, 0, FL_NORMAL_LABEL, 0, 14, 0},
+ {"&Blur", 0,  (Fl_Callback*)EE604A::GUI::WC_MainWindow::cb_Blur, 0, 0, FL_NORMAL_LABEL, 0, 14, 0},
  {0,0,0,0,0,0,0,0,0},
  {0,0,0,0,0,0,0,0,0}
 };

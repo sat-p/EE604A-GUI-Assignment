@@ -42,18 +42,18 @@ widget_class {EE604A::GUI::WC_MainWindow} {
       xywh {0 0 70 20}
     } {
       MenuItem {} {
-        label {Option &1}
-        callback {WAutoenhance_cb();}
+        label {&Remove}
+        callback {WRemove_cb();} selected
         xywh {0 0 36 20}
       }
       MenuItem {} {
-        label {Option &2}
-        callback {WRemoval_cb();}
+        label {&Blur}
+        callback {WBlur_cb();}
         xywh {0 0 36 20}
       }
     }
   }
-  Fl_Group wImageBox1 {open selected
+  Fl_Group wImageBox1 {open
     xywh {25 50 360 270}
     class UI_DrawImageBox
   } {}
@@ -65,8 +65,8 @@ widget_class {EE604A::GUI::WC_MainWindow} {
   }
   decl {virtual void WQuit_cb (void) {}} {private local
   }
-  decl {virtual void WAutoenhance_cb (void) {}} {private local
+  decl {virtual void WRemove_cb (void) {}} {private local
   }
-  decl {virtual void WRemoval_cb (void) {}} {private local
+  decl {virtual void WBlur_cb (void) {}} {private local
   }
 } 
