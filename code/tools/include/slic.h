@@ -33,8 +33,7 @@ cv::Mat slic (const cv::Mat& img, const container& connected)
         return img;
     }
     
-    auto lab_img = img.clone();
-    
+    cv::Mat lab_img;
     cv::cvtColor (img, lab_img, CV_BGR2Lab);
     
     const int w = img.cols;

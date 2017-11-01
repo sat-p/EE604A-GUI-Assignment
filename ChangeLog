@@ -1,3 +1,12 @@
+2017-11-01 Satya Panuganti <prakashsatya10@gmail.com>
+
+* algos/criminsi : Added an Implementation of Criminsi et al's inpainting
+                   algorithm.
+* tools/criminsi : Created basic structure of driver function for the
+                   inpainting algorithm.
+
+/************************************************************************/
+
 2017-10-27 Satya Panuganti <prakashsatya10@gmail.com>
 
 Segments which aren't being clicked are being blurred.

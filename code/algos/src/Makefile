@@ -3,7 +3,8 @@ include ${top_builddir}/makeinclude
 
 CPP_SRC = \
 	slic.cxx \
-	slicGC.cxx
+	slicGC.cxx \
+	criminisi.cxx
 
 OBJ = ${CPP_SRC:%.cxx=%.o}
 DEP = ${CPP_SRC:%.cxx=%.dep}
