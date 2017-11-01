@@ -52,7 +52,7 @@ void UI_MainWindow::WRemove_cb (void)
         cv::circle (mask,
                     cv::Point (p.first - wImageBox1->offset_x,
                                p.second - wImageBox1->offset_y),
-                    4,
+                    wImageBox1->CIRCLE_RADIUS,
                     255,
                     -1);
     

@@ -14,6 +14,9 @@ namespace GUI {
 class UI_DrawImageBox : public UI_ImageBox
 {
 public:
+    static constexpr int CIRCLE_RADIUS = 10;
+    
+public:
     UI_DrawImageBox(int X, int Y, int W, int H, const char *L = 0) :
         UI_ImageBox (X, Y, W, H, L)
     {}

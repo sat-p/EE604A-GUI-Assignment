@@ -29,7 +29,7 @@ int UI_DrawImageBox::handle (int event)
                 
                 cv::circle (_shown,
                             cv::Point (x, y),
-                            4,
+                            CIRCLE_RADIUS,
                             cv::Vec3b (0, 0, 0),
                             -1);
 
