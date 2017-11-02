@@ -1,5 +1,12 @@
 2017-11-02 Satya Panuganti <prakashsatya10@gmail.com>
 
+* algos/criminsi : Added a confidence regularizer. Also added code which
+                   allows the addition of a variance term to the SSD.
+
+/************************************************************************/
+
+2017-11-02 Satya Panuganti <prakashsatya10@gmail.com>
+
 * algos/criminsi : Fixed erroroneous implementation of priority().
 
 /************************************************************************/
