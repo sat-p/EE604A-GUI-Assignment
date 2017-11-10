@@ -64,16 +64,16 @@ cv::Mat Criminisi::generate (void)
         
         templateMask = (pInvMask);
         
-//         for (int i = 0; i < 3; ++i)
-//             mergeArrays[i] = templateMask;
-//         
-//         cv::merge(mergeArrays, 3, templateMask);
-// 
-//         cv::matchTemplate (_modified, phi_p, resSSD, CV_TM_SQDIFF, templateMask);        
-//         
+        for (int i = 0; i < 3; ++i)
+            mergeArrays[i] = templateMask;
+        
+        cv::merge(mergeArrays, 3, templateMask);
+
+        cv::matchTemplate (_modified, phi_p, resSSD, CV_TM_SQDIFF, templateMask);        
+        
 //         cv::Mat mean_p, var_p;
 //         cv::meanStdDev (phi_p, mean_p, var_p, pInvMask);
-//         
+        
 //         cv::Mat mean_q, var_q;
 //         for (int i = radius; i < _cols - radius; ++i) {
 //             for (int j = radius; j < _rows - radius; ++j) {
@@ -105,7 +105,14 @@ cv::Mat Criminisi::generate (void)
         q = q + cv::Point (radius, radius);
         
         const auto& phi_q = patch (q, _modified, radius);
-
+        
+//         cv::Mat PHI_p, PHI_q;
+//         cv::resize (phi_p, PHI_p, cv::Size (100, 100));
+//         cv::resize (phi_q, PHI_q, cv::Size (100, 100));
+//         
+//         cv::imshow ("phi_p", PHI_p);
+//         cv::imshow ("phi_q", PHI_q);
+        
         phi_q.copyTo (phi_p, pMask);
         
         cv::Mat confPatch = patch (p, _confidence);

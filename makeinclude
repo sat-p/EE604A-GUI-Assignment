@@ -11,7 +11,7 @@ LIB = \
 	-lfltk \
 	`pkg-config opencv --cflags --libs`
     
-FLAGS = -Wall -O3 -std=c++11
+FLAGS = -g -Wall -O3 -std=c++11
 MFLAGS = $(FLAGS) -M
 CFLAGS = $(FLAGS) -c
 LFLAGS = $(FLAGS)
